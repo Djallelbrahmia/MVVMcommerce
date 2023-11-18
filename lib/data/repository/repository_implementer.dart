@@ -79,6 +79,28 @@ class RepositoryImplementer implements Repository {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, HomeObject>> getHome() async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response = await _remoteDataSource.getHome();
+
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          //return Biz logic error
+
+          return Left(Failure(response.status ?? ApiInternalStatus.FAILURE,
+              response.message ?? ResponsMessage.UNKNOWN));
+        }
+      } catch (error) {
+        return left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
 }
 
 class ApiInternalStatus {

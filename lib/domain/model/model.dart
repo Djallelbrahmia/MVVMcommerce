@@ -36,3 +36,38 @@ class ForgetPassword {
   String support;
   ForgetPassword(this.support);
 }
+
+class Services {
+  String id;
+  String title;
+  String image;
+  Services(this.id, this.title, this.image);
+}
+
+class Stores {
+  String id;
+  String title;
+  String image;
+  Stores(this.id, this.title, this.image);
+}
+
+class Banners {
+  String id;
+  String title;
+  String image;
+  String link;
+
+  Banners(this.id, this.title, this.image, this.link);
+}
+
+class HomeData {
+  List<Stores> stores;
+  List<Banners> banners;
+  List<Services> services;
+  HomeData(this.stores, this.banners, this.services);
+}
+
+class HomeObject {
+  HomeData data;
+  HomeObject(this.data);
+}
