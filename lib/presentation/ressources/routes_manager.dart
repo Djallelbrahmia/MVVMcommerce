@@ -2,6 +2,7 @@ import 'package:ecommvvm/app/di.dart';
 import 'package:ecommvvm/presentation/StoreDetails/store_details.dart';
 import 'package:ecommvvm/presentation/forgot_password/forgot_password.dart';
 import 'package:ecommvvm/presentation/login/login.dart';
+import 'package:ecommvvm/presentation/main/home/home_page.dart';
 import 'package:ecommvvm/presentation/main/main_view.dart';
 import 'package:ecommvvm/presentation/onboarding/onboarding.dart';
 import 'package:ecommvvm/presentation/register/register.dart';
@@ -31,6 +32,7 @@ class RouteGenerator {
         initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.mainRoute:
+        initHomeModule();
         return MaterialPageRoute(builder: (_) => const MainView());
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());

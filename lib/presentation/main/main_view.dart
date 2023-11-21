@@ -1,4 +1,4 @@
-import 'package:ecommvvm/presentation/main/home_page.dart';
+import 'package:ecommvvm/presentation/main/home/home_page.dart';
 import 'package:ecommvvm/presentation/main/notification_page.dart';
 import 'package:ecommvvm/presentation/main/search_page.dart';
 import 'package:ecommvvm/presentation/main/settings_page.dart';

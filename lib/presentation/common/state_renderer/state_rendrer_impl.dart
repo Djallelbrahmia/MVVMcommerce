@@ -114,7 +114,6 @@ extension FlowStateExtension on FlowState {
         }
       case ContentState:
         {
-          dismissDialog(context);
           return contentScreenWidget;
         }
       case EmptyState:

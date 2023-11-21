@@ -1,15 +1,17 @@
 import 'dart:async';
 
 import 'package:ecommvvm/presentation/common/state_renderer/state_rendrer_impl.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract class BaseViewModel with BaseViewModelInputs, BaseViewModelOutputs {
-  StreamController _inputStateController =
-      StreamController<FlowState>.broadcast();
+  StreamController _inputStateController = BehaviorSubject<FlowState>();
   @override
   Sink get inputState => _inputStateController.sink;
   @override
   Stream<FlowState> get outPutState =>
-      _inputStateController.stream.map((flowState) => flowState);
+      _inputStateController.stream.map((flowState) {
+        return flowState;
+      });
   @override
   void dispose() {
     _inputStateController.close();
