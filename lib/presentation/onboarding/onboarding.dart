@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommvvm/app/app_prefs.dart';
 import 'package:ecommvvm/app/di.dart';
 import 'package:ecommvvm/domain/model/model.dart';
@@ -85,7 +86,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             context, Routes.loginRoute);
                       },
                       child: Text(
-                        AppStrings.skip,
+                        AppStrings.skip.tr(),
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                     ),

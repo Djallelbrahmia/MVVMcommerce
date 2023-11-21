@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommvvm/presentation/main/home/home_page.dart';
 import 'package:ecommvvm/presentation/main/notification_page.dart';
 import 'package:ecommvvm/presentation/main/search_page.dart';
@@ -21,11 +22,11 @@ class _MainViewState extends State<MainView> {
     NotificationPage(),
     SettingsPage()
   ];
-  List<String> titles = const [
-    AppStrings.home,
-    AppStrings.search,
-    AppStrings.notification,
-    AppStrings.settings
+  List<String> titles = [
+    AppStrings.home.tr(),
+    AppStrings.search.tr(),
+    AppStrings.notifications.tr(),
+    AppStrings.settings.tr()
   ];
   var _currentIndex = 0;
   @override
@@ -47,16 +48,16 @@ class _MainViewState extends State<MainView> {
           unselectedItemColor: ColorManager.grey,
           currentIndex: _currentIndex,
           onTap: onTap,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: AppStrings.home),
+                icon: Icon(Icons.home), label: AppStrings.home.tr()),
             BottomNavigationBarItem(
-                icon: Icon(Icons.search), label: AppStrings.search),
+                icon: Icon(Icons.search), label: AppStrings.search.tr()),
             BottomNavigationBarItem(
                 icon: Icon(Icons.notifications),
-                label: AppStrings.notification),
+                label: AppStrings.notifications.tr()),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: AppStrings.email)
+                icon: Icon(Icons.settings), label: AppStrings.settings.tr())
           ],
         ),
       ),

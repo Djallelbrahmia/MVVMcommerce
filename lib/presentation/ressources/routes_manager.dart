@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommvvm/app/di.dart';
 import 'package:ecommvvm/presentation/StoreDetails/store_details.dart';
 import 'package:ecommvvm/presentation/forgot_password/forgot_password.dart';
@@ -51,7 +52,7 @@ class RouteGenerator {
   static Route<dynamic> undefinedRoute() {
     return MaterialPageRoute(
         builder: (_) => Scaffold(
-              appBar: AppBar(title: const Text(AppStrings.noRouteFound)),
+              appBar: AppBar(title: const Text(AppStrings.noRouteFound).tr()),
             ));
   }
 }

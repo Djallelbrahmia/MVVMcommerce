@@ -36,8 +36,10 @@ dependencies:
   dartz: ^0.10.1
   device_information: ^0.0.4
   dio: ^5.3.3
+  easy_localization: ^3.0.3
   flutter:
     sdk: flutter
+  flutter_phoenix: ^1.1.1
   flutter_svg: ^2.0.9
   freezed: ^2.4.5
   get_it: ^7.6.4
@@ -100,6 +102,7 @@ flutter:
     - assets/json/error.json
     - assets/json/empty.json
     - assets/json/success.json
+    - assets/json/translations/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
