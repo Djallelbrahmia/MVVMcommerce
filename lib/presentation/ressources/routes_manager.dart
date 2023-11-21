@@ -40,6 +40,8 @@ class RouteGenerator {
         initRegisterModel();
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case Routes.storeDetailsRoute:
+        initStoresDetails();
+
         return MaterialPageRoute(builder: (_) => const StoreDetailsView());
       default:
         return undefinedRoute();

@@ -1,5 +1,6 @@
 import 'package:ecommvvm/app/extensions.dart';
 import 'package:ecommvvm/data/responses/responses.dart';
+import 'package:ecommvvm/data/responses/responses.dart';
 import 'package:ecommvvm/domain/model/model.dart';
 
 const EMPTY = "";
@@ -77,5 +78,17 @@ extension HomeResponseMapper on HomeResponse? {
 
     var data = HomeData(mappedStores, mappedBanners, mappedServices);
     return HomeObject(data);
+  }
+}
+
+extension StoreDetailsReponseExtention on StoreDetailsReponse? {
+  StoreDetails toDomain() {
+    return StoreDetails(
+        this?.image?.orEmpty() ?? "",
+        this?.id.orZero() ?? 0,
+        this?.title?.orEmpty() ?? "",
+        this?.details?.orEmpty() ?? "",
+        this?.services?.orEmpty() ?? "",
+        this?.about?.orEmpty() ?? "");
   }
 }

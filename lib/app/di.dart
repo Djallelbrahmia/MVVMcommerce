@@ -1,4 +1,5 @@
 import 'package:ecommvvm/app/app_prefs.dart';
+import 'package:ecommvvm/data/dada.data_source/local_data_source.dart';
 import 'package:ecommvvm/data/dada.data_source/remote_data_source.dart';
 import 'package:ecommvvm/data/network.dart/app_api.dart';
 import 'package:ecommvvm/data/network.dart/dio_factory.dart';
@@ -9,6 +10,8 @@ import 'package:ecommvvm/domain/use_cases/forget_password.dart';
 import 'package:ecommvvm/domain/use_cases/home_use_case.dart';
 import 'package:ecommvvm/domain/use_cases/login_use_case.dart';
 import 'package:ecommvvm/domain/use_cases/register_use_case.dart';
+import 'package:ecommvvm/domain/use_cases/store_details_use_case.dart';
+import 'package:ecommvvm/presentation/StoreDetails/stores_details_view_model.dart';
 import 'package:ecommvvm/presentation/forgot_password/forget_password_view_model.dart';
 import 'package:ecommvvm/presentation/login/login_view_model.dart';
 import 'package:ecommvvm/presentation/main/home/home_view_model.dart';
@@ -32,9 +35,12 @@ Future<void> initAppModule() async {
   //remote data source
   instance.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImplementer(instance()));
+//local data source
+  instance.registerLazySingleton<LocalDataSource>(
+      () => LocalDataSourceImplementer());
   //repository
   instance.registerLazySingleton<Repository>(
-      () => RepositoryImplementer(instance(), instance()));
+      () => RepositoryImplementer(instance(), instance(), instance()));
 }
 
 initLoginModule() {
@@ -67,5 +73,14 @@ initHomeModule() {
   if (!GetIt.I.isRegistered<HomeUseCase>()) {
     instance.registerFactory<HomeUseCase>(() => HomeUseCase(instance()));
     instance.registerFactory<HomeViewModel>(() => HomeViewModel(instance()));
+  }
+}
+
+initStoresDetails() {
+  if (!GetIt.I.isRegistered<StoreDetailsUseCase>()) {
+    instance.registerFactory<StoreDetailsUseCase>(
+        () => StoreDetailsUseCase(instance()));
+    instance.registerFactory<StoreDetailsViewModel>(
+        () => StoreDetailsViewModel(instance()));
   }
 }
